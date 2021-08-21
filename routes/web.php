@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -37,4 +33,10 @@ Route::get('/post', function(){
 });
 Route::get('/contact', function(){
     return view('website.contact');
+});
+
+//Admin panel routes
+
+Route::get('/myadmin', function(){
+    return view('admin.dashboard.index');
 });
