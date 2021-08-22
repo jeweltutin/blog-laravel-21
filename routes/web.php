@@ -20,7 +20,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', function(){
     //return view('layouts.template');
     return view('website.home');
-});
+})->name('website');
 
 Route::get('/about', function(){
     return view('website.about');
@@ -37,6 +37,22 @@ Route::get('/contact', function(){
 
 //Admin panel routes
 
-Route::get('/myadmin', function(){
+//use \App\Http\Controllers\CategoryController; 
+/*Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
+    Route::get('/dashboard', function(){
+        return view('admin.dashboard.index');
+    });
+    
+    Route::resource('category', CategoryController::class);
+    //Route::resource('category', '\App\Http\Controllers\CategoryController');
+});*/
+
+Route::get('/dashboard', function(){
     return view('admin.dashboard.index');
 });
+
+//Route::get('/category', [CategoryController::class, 'index']);
+Route::resource('category', '\App\Http\Controllers\CategoryController');
+
+
+    
