@@ -17,7 +17,10 @@ class CategoryController extends Controller
     public function index()
     {
         //return "Hello! man";
-        return view('admin.category.index');
+        //return view('admin.category.index');
+
+        $categories = Category::orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -39,16 +42,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //dd($request->all());
+        
         //Validation
-        $this->validate($request, [
-            'name' => 'required|unique:categories,name'
-        ]);
+        $this->validate($request, [ 'name' => 'required|unique:categories,name' ]);
 
         $category = Category::create([
             'name' => $request->name,
             'slug' => Str::of($request->name)->slug('-'),
             'description' => $request->description
-        ]);
+        ]); 
 
         Session::flash('success', 'Category Created Successfully');
         return redirect()->back();
