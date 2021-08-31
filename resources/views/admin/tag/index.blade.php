@@ -37,7 +37,6 @@
                       <th style="width: 10px">#</th>
                       <th>Name</th>
                       <th>Slug</th>
-                      <th>Post Count</th>
                       <th style="width: 40px">Action</th>
                     </tr>
                   </thead>
@@ -48,24 +47,21 @@
                       <td>{{ $tag->id }}</td>
                       <td>{{ $tag->name }}</td>
                       <td>{{ $tag->slug }}</td>
-                      <td>
-                        {{ $tag->id }}
-                      </td>
                       <td class="d-flex">
-                        <a href="{{ route('Tag.edit',[ $Tag->id ]) }}" class="btn btn-sm btn-primary mr-1"><i class="fas fa-edit"></i></a>
-                        <form action="{{ route('Tag.destroy', [$Tag->id]) }}" method="POST" class="mr-1">
+                        <a href="{{ route('tag.edit',[ $tag->id ]) }}" class="btn btn-sm btn-primary mr-1"><i class="fas fa-edit"></i></a>
+                        <form action="{{ route('tag.destroy', [$tag->id]) }}" method="POST" class="mr-1">
                           @method('DELETE')
                           @csrf
                           <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                         </form>
-                        <a href="{{ route('Tag.show', [$Tag->id]) }}" class="btn btn-sm btn-success mr-1"><i class="fas fa-eye"></i></a>
+                        <a href="{{ route('tag.show', [$tag->id]) }}" class="btn btn-sm btn-success mr-1"><i class="fas fa-eye"></i></a>
                     
                       </td>
                     </tr>
                     @endforeach
                     @else
                       <tr>
-                        <td colspan="5">
+                        <td colspan="4">
                           <h5 class="text-center">No Tags Found.</h5>
                         </td>
                       </tr>
