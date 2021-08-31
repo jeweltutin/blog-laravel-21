@@ -75,7 +75,8 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        //return $category;
+        return view('admin.category.edit', compact('category'));
     }
 
     /**
@@ -87,7 +88,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        //dd($request->all());
+
+        $this->validate($request, [ 'name' => "required|unique:categories,name, $category->name" ]);
+
+        
+        $category->name = $request->name;
+        $category->slug = Str::of($request->name)->slug('-');
+        $category->description =  $request->description;
+        $category->save();
+
+        Session::flash('success', 'Category Updated Successfully');
+        return redirect()->back();
     }
 
     /**
@@ -98,6 +110,12 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        //return $category;
+        if($category){
+            $category->delete();
+
+            Session::flash('success', 'Category Deleted Successfully');
+            return redirect()->route('category.index');
+        }
     }
 }

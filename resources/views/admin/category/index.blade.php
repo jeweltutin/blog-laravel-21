@@ -52,7 +52,7 @@
                       </td>
                       <td class="d-flex">
                         <a href="{{ route('category.edit',[ $category->id ]) }}" class="btn btn-sm btn-primary mr-1"><i class="fas fa-edit"></i></a>
-                        <form action="{{ route('category.destroy', [$category->id]) }}" class="mr-1">
+                        <form action="{{ route('category.destroy', [$category->id]) }}" method="POST" class="mr-1">
                           @method('DELETE')
                           @csrf
                           <button type="submit" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
