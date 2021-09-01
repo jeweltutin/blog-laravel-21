@@ -54,6 +54,7 @@ Route::get('/dashboard', function(){
 //Route::get('/category', [CategoryController::class, 'index']);
 Route::resource('category', '\App\Http\Controllers\CategoryController');
 Route::resource('tag', '\App\Http\Controllers\TagController');
+Route::resource('post', '\App\Http\Controllers\PostController');
 
 
     
