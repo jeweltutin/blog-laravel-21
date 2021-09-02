@@ -195,7 +195,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item mt-auto">
             <a href="{{ route('category.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-tags"></i>
+            <i class="nav-icon fas fa-check-circle"></i>
             <p>
               Categories
             </p> 
@@ -203,9 +203,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item mt-auto">
             <a href="{{ route('tag.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-tag"></i>
+            <i class="nav-icon fas fa-tags"></i>
             <p>
               Tags
+            </p> 
+            </a>
+          </li>
+          <li class="nav-item mt-auto">
+            <a href="{{ route('post.index') }}" class="nav-link">
+            <i class="nav-icon fas fa-plus-circle"></i>
+            <p>
+              Posts
             </p> 
             </a>
           </li>

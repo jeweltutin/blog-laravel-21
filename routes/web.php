@@ -28,7 +28,7 @@ Route::get('/about', function(){
 Route::get('/category', function(){
     return view('website.category');
 });
-Route::get('/post', function(){
+Route::get('/postshow', function(){
     return view('website.post');
 });
 Route::get('/contact', function(){

@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\str;
+use Carbon\Carbon;
+use Session;
 
 class PostController extends Controller
 {
@@ -14,7 +18,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::orderBy('created_at', 'DESC')->paginate(20);
+        return view('admin.post.index',compact('posts'));
     }
 
     /**
@@ -24,7 +29,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.post.create', compact('categories'));
     }
 
     /**
@@ -35,7 +41,26 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|unique:posts,title',
+            'image' => 'required|image',
+            'description' => 'required',
+            'categoryid' => 'required'
+        ]);
+
+        //dd($request->all());
+
+        $post = Post::create([
+            'title' => $request->title,
+            'slug' => Str::of($request->title)->slug('-'),
+            'image' => 'image.jpg',
+            'description' => $request->description,
+            'category_id' => $request->categoryid,
+            'user_id' => auth()->user()->id,
+            'published' => Carbon::now() 
+        ]);
+        Session::flash('success', 'Post created successfully');
+        return redirect()->back();
     }
 
     /**
