@@ -59,6 +59,17 @@ class PostController extends Controller
             'user_id' => auth()->user()->id,
             'published' => Carbon::now() 
         ]);
+
+        if($request->has('image')){
+            $upimage = $request->image;
+            //$imageNewName = time().'.'. $upimage->getClientOriginalName();
+            $imageNewName = time().'.'. $upimage->getClientOriginalExtension();
+            //return $imageNewName;
+            $upimage->move('storage/post', $imageNewName);
+            $post->image = '/storage/post/'. $imageNewName;
+            $post->save();
+        }
+        
         Session::flash('success', 'Post created successfully');
         return redirect()->back();
     }
@@ -82,7 +93,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::all();
+        return view('admin.post.edit', compact(['post', 'categories']));
     }
 
     /**

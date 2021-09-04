@@ -53,8 +53,11 @@
                           <img src="{{ asset($post->image) }}" class="img-fluid" alt="">
                         </div>
                       </td>
-                      <td>{{ $post->category_id }}</td>
-                      <td>{{ $post->user_id }}</td>
+                      <!--<td>{{ $post->category_id }}</td>
+                      <td>{{ $post->category }}</td>-->
+                      <td>{{ $post->category->name }}</td> 
+                      <!-- <td>{{ $post->user }}</td> -->
+                      <td>{{ $post->user->name }}</td>
                       <td class="d-flex">
                         <a href="{{ route('post.edit',[ $post->id ]) }}" class="btn btn-sm btn-primary mr-1"><i class="fas fa-edit"></i></a>
                         <form action="{{ route('post.destroy', [$post->id]) }}" method="POST" class="mr-1">
