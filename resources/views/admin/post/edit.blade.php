@@ -35,8 +35,9 @@
           <!-- form start -->
           <div class="row">
               <div class="col-12 col-lg-6 offset-lg-3 col-md-8 offset-md-2">
-              <form action="{{ route('post.store') }}" method="POST" enctype="multipart/form-data">
+              <form action="{{ route('post.update', [$post->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
+                @method('PUT')
             <div class="card-body">
               @include('includes.errors')
 
@@ -72,7 +73,7 @@
 
               <div class="form-group">
                 <label for="description">Enter Description</label>
-                <textarea name="description" class="form-control" id="description" placeholder="Enter Description" rows="4">{{ old('description') }}</textarea>
+                <textarea name="description" class="form-control" id="description" placeholder="Enter Description" rows="4">{{ $post->description }}</textarea>
               </div>
             </div>
             <!-- /.card-body -->

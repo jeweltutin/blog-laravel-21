@@ -106,7 +106,39 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        //dd($request->all());
+
+        $this->validate($request, [
+            //'title' => "required|unique:posts,title, $post->id",
+            'title' => 'required',
+            //'image' => 'sometimes|image',
+            'description' => 'required',
+            'categoryid' => 'required'
+        ]);
+
+        //dd($request->all());
+
+            $post->title = $request->title;
+            $post->slug = Str::of($request->title)->slug('-');
+            $post->image = 'iamge.jpg';
+            $post->description = $request->description;
+            $post->category_id = $request->categoryid;
+
+        //if($request->has('image')){
+        //if ($request->hasFile('image')){
+        if ($request->hasFile('image')){
+            $upimage = $request->image;
+            $imageNewName = time().'.'. $upimage->getClientOriginalExtension();
+            $upimage->move('storage/post', $imageNewName);
+            $post->image = '/storage/post/'. $imageNewName;            
+        }
+        else{
+            //dd($request->all());
+        }
+        $post->save();
+
+        Session::flash('success', 'Post updated successfully');
+        return redirect()->back();
     }
 
     /**
@@ -117,6 +149,19 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if($post){
+            if(file_exists(public_path($post->image))){
+                //dd('Found');
+                unlink(public_path($post->image));
+            }
+            /*else{
+                dd('Not Found');
+            }*/
+
+            $post->delete();
+            Session::flash('Post deleted successfully');
+        }
+
+        return redirect()->back();
     }
 }

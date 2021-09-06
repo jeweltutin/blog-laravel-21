@@ -211,7 +211,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item mt-auto">
             <a href="{{ route('post.index') }}" class="nav-link">
-            <i class="nav-icon fas fa-plus-circle"></i>
+            <!-- <i class="nav-icon fas fa-plus-circle"></i> -->
+            <i class="nav-icon fas fa-pen-square"></i>
             <p>
               Posts
             </p> 
