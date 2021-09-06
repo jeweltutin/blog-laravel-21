@@ -38,6 +38,7 @@
                       <th>Title</th>
                       <th>Image</th>
                       <th>Category</th> 
+                      <th>Tags</th> 
                       <th>Author</th> 
                       <th style="width: 40px">Action</th>
                     </tr>
@@ -56,6 +57,11 @@
                       <!--<td>{{ $post->category_id }}</td>
                       <td>{{ $post->category }}</td>-->
                       <td>{{ $post->category->name }}</td> 
+                      <td>
+                        @foreach($post->tags as $tag)
+                          <span class="badge badge-primary">{{ $tag->name }}</span>
+                        @endforeach
+                      </td> 
                       <!-- <td>{{ $post->user }}</td> -->
                       <td>{{ $post->user->name }}</td>
                       <td class="d-flex">

@@ -72,6 +72,20 @@
               </div>
 
               <div class="form-group">
+                <label for="tag">Select Tag</label>
+                @foreach($tags as $tag)
+                  <div class="custom-control custom-checkbox">
+                    <input class="custom-control-input" name="tags[]" type="checkbox" id="tag-{{ $tag->id }}" value="{{ $tag->id }}" 
+                    @foreach($post->tags as $t)
+                      @if($tag->id == $t->id) checked @endif
+                    @endforeach
+                    >
+                    <label for="tag-{{ $tag->id }}" class="custom-control-label">{{ $tag->name }}</label>
+                  </div>
+                @endforeach
+              </div>
+
+              <div class="form-group">
                 <label for="description">Enter Description</label>
                 <textarea name="description" class="form-control" id="description" placeholder="Enter Description" rows="4">{{ $post->description }}</textarea>
               </div>

@@ -59,6 +59,15 @@
                 <label for="image">Image Upload</label>
                 <input type="file" name="image" id="image" class="form-control-file">   
               </div>
+              <div class="form-group">
+              <label for="tag">Select Tag</label>
+              @foreach($tags as $tag)
+                <div class="custom-control custom-checkbox">
+                  <input class="custom-control-input" name="tags[]" type="checkbox" id="tag-{{ $tag->id }}" value="{{ $tag->id }}">
+                  <label for="tag-{{ $tag->id }}" class="custom-control-label">{{ $tag->name }}</label>
+                </div>
+              @endforeach
+              </div>
 
               <div class="form-group">
                 <label for="description">Enter Description</label>
