@@ -88,7 +88,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('admin.post.show', compact('post'));
     }
 
     /**
@@ -127,7 +127,7 @@ class PostController extends Controller
 
         $post->title = $request->title;
         $post->slug = Str::of($request->title)->slug('-');
-        $post->image = 'iamge.jpg';
+        //$post->image = 'iamge.jpg';
         $post->description = $request->description;
         $post->category_id = $request->categoryid;
 
