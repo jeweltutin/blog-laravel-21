@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontendController;
+
+use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', function(){
+//Frontend Routes
+Route::get('/', 'App\Http\Controllers\FrontendController@home')->name('website');
+Route::get('/about', 'FrontendController@home')->name('website');
+Route::get('/category', 'FrontendController@home')->name('website');
+Route::get('/category', [FrontendController::class, 'category']);
+Route::get('/post', 'FrontendController@home')->name('website');
+Route::get('/contact', 'FrontendController@home')->name('website');
+
+
+/*Route::get('/', function(){
     //return view('layouts.template');
     return view('website.home');
 })->name('website');
@@ -33,10 +45,10 @@ Route::get('/postshow', function(){
 });
 Route::get('/contact', function(){
     return view('website.contact');
-});
+});*/
+
 
 //Admin panel routes
-
 use \App\Http\Controllers\CategoryController; 
 Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', function(){
@@ -59,6 +71,21 @@ Route::get('/dashboard', function(){
 Route::resource('category', '\App\Http\Controllers\CategoryController');
 Route::resource('tag', '\App\Http\Controllers\TagController');
 Route::resource('post', '\App\Http\Controllers\PostController');*/
+
+
+Route::get('/test', function(){
+    $posts = Post::all();
+
+    $id = 50;
+
+    foreach($posts as $post){
+        //$post->image = "https://picsum.photos/600/400";
+        $post->image = "https://picsum.photos/id/".$id."/600/400.jpg";
+        $post->save();
+        $id++;
+    }
+    return $posts;
+});
 
 
     

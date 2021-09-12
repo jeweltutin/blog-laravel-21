@@ -236,6 +236,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
+          <li class="nav-item mt-auto bg-info">
+            <a href="{{ route('website') }}" class="nav-link" target="_blank">
+            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <p>
+              View Website
+            </p> 
+            </a>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
