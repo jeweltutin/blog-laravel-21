@@ -22,11 +22,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Frontend Routes
 Route::get('/', 'App\Http\Controllers\FrontendController@home')->name('website');
-Route::get('/about', 'FrontendController@home')->name('website');
-Route::get('/category', 'FrontendController@home')->name('website');
-Route::get('/category', [FrontendController::class, 'category']);
-Route::get('/post', 'FrontendController@home')->name('website');
-Route::get('/contact', 'FrontendController@home')->name('website');
+//Route::get('/about', 'FrontendController@home')->name('website.about');
+Route::get('/category', [FrontendController::class, 'category'])->name('website.category');
+Route::get('/post/{slug}', 'App\Http\Controllers\FrontendController@post')->name('website.post');
+Route::get('/contact', [FrontendController::class, 'contact'])->name('website.contact');
 
 
 /*Route::get('/', function(){

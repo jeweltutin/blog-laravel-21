@@ -238,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-item mt-auto bg-info">
             <a href="{{ route('website') }}" class="nav-link" target="_blank">
-            <i class="nav-icon fas fa-sign-out-alt"></i>
+            <i class="nav-icon fas fa-eye"></i>
             <p>
               View Website
             </p> 
