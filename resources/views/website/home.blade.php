@@ -4,49 +4,41 @@
       <div class="container">
         <div class="row align-items-stretch retro-layout-2">
           <div class="col-md-4">
-            <a href="single.html" class="h-entry mb-30 v-height gradient" style="background-image: url( '{{ asset('website') }}/images/img_1.jpg');">
+            @foreach($firstTwo as $f2)
+            <a href="{{ route('website.post', ['slug' => $f2->slug] ) }}" class="h-entry mb-30 v-height gradient" style="background-image: url( '{{ $f2->image }}');">
               
               <div class="text">
-                <h2>The AI magically removes moving objects from videos.</h2>
-                <span class="date">July 19, 2019</span>
+                <h2>{{ $f2->title }}</h2>
+                <span class="date">{{ $f2->created_at->format('M d, Y') }}</span>
               </div>
             </a>
-            <a href="single.html" class="h-entry v-height gradient" style="background-image: url( '{{ asset('website') }}/images/img_2.jpg');">
-              
-              <div class="text">
-                <h2>The AI magically removes moving objects from videos.</h2>
-                <span class="date">July 19, 2019</span>
-              </div>
-            </a>
+            @endforeach
           </div>
           <div class="col-md-4">
-            <a href="single.html" class="h-entry img-5 h-100 gradient" style="background-image: url( '{{ asset('website') }}/images/bah.png');">
+          @foreach($middleOne as $m1)
+            <a href="{{ route('website.post', ['slug' => $m1->slug] ) }}" class="h-entry img-5 h-100 gradient" style="background-image: url( '{{ $m1->image }}');">
               
               <div class="text">
                 <div class="post-categories mb-3">
-                  <span class="post-category bg-danger">Travel</span>
+                  <span class="post-category bg-danger">{{ $m1->category->name }}</span>
                   <span class="post-category bg-primary">Food</span>
                 </div>
-                <h2>The AI magically removes moving objects from videos.</h2>
-                <span class="date">July 19, 2019</span>
+                <h2>{{ $m1->title }}.</h2>
+                <span class="date">{{ $m1->created_at->format('M d, Y') }}</span>
               </div>
             </a>
+          @endforeach
           </div>
           <div class="col-md-4">
-            <a href="single.html" class="h-entry mb-30 v-height gradient" style="background-image: url( '{{ asset('website') }}/images/img_3.jpg');">
-              
-              <div class="text">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span class="date">July 19, 2019</span>
-              </div>
-            </a>
-            <a href="single.html" class="h-entry v-height gradient" style="background-image: url( '{{ asset('website') }}/images/img_4.jpg');">
-              
-              <div class="text">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span class="date">July 19, 2019</span>
-              </div>
-            </a>
+             @foreach($lastTwo as $l2)
+              <a href="{{ route('website.post', ['slug' => $l2->slug] ) }}" class="h-entry mb-30 v-height gradient" style="background-image: url( '{{ $l2->image }}');">
+                
+                <div class="text">
+                  <h2>{{ $l2->title }}</h2>
+                  <span class="date">{{ $l2->created_at->format('M d, Y') }}</span>
+                </div>
+              </a>
+              @endforeach
           </div>
         </div>
       </div>
@@ -101,44 +93,41 @@
 
     <div class="site-section bg-light">
       <div class="container">
-
         <div class="row align-items-stretch retro-layout">
           
           <div class="col-md-5 order-md-2">
-            <a href="single.html" class="hentry img-1 h-100 gradient" style="background-image: url( '{{ asset('website') }}/images/img_4.jpg');">
-              <span class="post-category text-white bg-danger">Travel</span>
+            @foreach($lFirstOne as $lfo)
+            <a href="{{ route('website.post', ['slug' => $lfo->slug] ) }}" class="hentry img-1 h-100 gradient" style="background-image: url( {{ $lfo->image }} )">
+              <span class="post-category text-white bg-danger">{{ $lfo->category->name }}</span>
               <div class="text">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span>February 12, 2019</span>
+                <h2>{{ $lfo->title }}</h2>
+                <span>{{ $lfo->created_at->format('M d, Y') }}</span>
               </div>
             </a>
+            @endforeach
           </div>
 
           <div class="col-md-7">
-            
-            <a href="single.html" class="hentry img-2 v-height mb30 gradient" style="background-image: url( '{{ asset('website') }}/images/img_1.jpg');">
-              <span class="post-category text-white bg-success">Nature</span>
+          @foreach($lLastOne as $ll1)
+            <a href="{{ route('website.post', ['slug' => $ll1->slug] ) }}" class="hentry img-2 v-height mb30 gradient" style="background-image: url( '{{ $ll1->image }}');">
+              <span class="post-category text-white bg-success">{{ $ll1->category->name }}</span>
               <div class="text text-sm">
-                <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                <span>February 12, 2019</span>
+                <h2>{{ $ll1->title }}</h2>
+                <span>{{ $ll1->created_at->format('M d, Y') }}</span>
               </div>
             </a>
+          @endforeach
             
-            <div class="two-col d-block d-md-flex">
-              <a href="single.html" class="hentry v-height img-2 gradient" style="background-image: url( '{{ asset('website') }}/images/img_2.jpg');">
-                <span class="post-category text-white bg-primary">Sports</span>
-                <div class="text text-sm">
-                  <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                  <span>February 12, 2019</span>
-                </div>
-              </a>
-              <a href="single.html" class="hentry v-height img-2 ml-auto gradient" style="background-image: url( '{{ asset('website') }}/images/img_3.jpg');">
-                <span class="post-category text-white bg-warning">Lifestyle</span>
-                <div class="text text-sm">
-                  <h2>The 20 Biggest Fintech Companies In America 2019</h2>
-                  <span>February 12, 2019</span>
-                </div>
-              </a>
+            <div class="two-col d-block d-md-flex justify-content-between">
+              @foreach($lMiddleTwo as $lm2)
+                <a href="{{ route('website.post', ['slug' => $lm2->slug] ) }}" class="hentry v-height img-2 gradient" style="background-image: url( {{ $lm2->image }}">
+                  <span class="post-category text-white bg-primary">{{ $lm2->category->name }}</span>
+                  <div class="text text-sm">
+                    <h2>{{ $lm2->title }}</h2>
+                    <span>{{ $lm2->created_at->format('M d, Y') }}</span>
+                  </div>
+                </a>
+              @endforeach
             </div>  
             
           </div>

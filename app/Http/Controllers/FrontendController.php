@@ -10,10 +10,25 @@ use App\Models\Post;
 class FrontendController extends Controller
 {
     public function home(){
-        $posts = Post::orderBy('created_at', 'DESC')->take(5)->get();
+        $posts = Post::with('category', 'user')->orderBy('created_at', 'DESC')->take(5)->get();
+
+        $firstTwo = $posts->splice(0, 2);
+        $middleOne = $posts->splice(0, 1);
+        $lastTwo = $posts->splice(0);
+
+        //return $lastTwo;
         //$recentPosts = Post::orderBy('created_at', 'DESC')->paginate(9);
+
+        $LastSectionPosts = Post::with('category', 'user')->inRandomOrder()->limit(4)->get();
+
+        $lFirstOne = $LastSectionPosts->splice(0, 1);
+        $lMiddleTwo = $LastSectionPosts->splice(0, 2);
+        $lLastOne = $LastSectionPosts->splice(0);
+
+        //return $lLastOne;
+
         $recentPosts = Post::with('category','user')->orderBy('created_at', 'DESC')->paginate(9);
-        return view('website.home', compact('posts', 'recentPosts'));
+        return view('website.home', compact('posts', 'recentPosts', 'firstTwo', 'middleOne', 'lastTwo', 'lFirstOne', 'lMiddleTwo', 'lLastOne' ));
     }
 
     public function about(){
