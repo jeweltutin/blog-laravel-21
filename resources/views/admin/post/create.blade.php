@@ -56,6 +56,11 @@
               </div>
 
               <div class="form-group">
+                <label for="title">Featured:&nbsp;&nbsp;</label>
+                <input type="checkbox" data-toggle="toggle" data-style="ios" data-size="xs">
+              </div>
+
+              <div class="form-group">
                 <label for="image">Image Upload</label>
                 <input type="file" name="image" id="image" class="form-control-file">   
               </div>
@@ -98,9 +103,17 @@
 
 @section('style')
   <link rel="stylesheet" href="{{ asset('/admin/css/summernote-bs4.min.css') }}" class="">
+
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+  <style>
+    .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20rem; }
+    .toggle.ios .toggle-handle { border-radius: 20rem; }
+  </style>
 @endsection
 
 @section('script')
+  <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+
   <script src="{{ asset('/admin/js/summernote-bs4.min.js') }}"></script>
   <script>
       $('#description').summernote({

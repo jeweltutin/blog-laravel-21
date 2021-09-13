@@ -39,6 +39,7 @@
                       <th>Image</th>
                       <th>Category</th> 
                       <th>Tags</th> 
+                      <th>Featured</th> 
                       <th>Author</th> 
                       <th style="width: 40px">Action</th>
                     </tr>
@@ -63,6 +64,9 @@
                         @endforeach
                       </td> 
                       <!-- <td>{{ $post->user }}</td> -->
+                      <td>
+                        <input type="checkbox" data-toggle="toggle" data-style="ios" data-size="xs">
+                      </td>
                       <td>{{ $post->user->name }}</td>
                       <td class="d-flex">
                         <a href="{{ route('post.show', [$post->id]) }}" class="btn btn-sm btn-success mr-1"><i class="fas fa-eye"></i></a>
@@ -95,3 +99,20 @@
     </div>
     <!-- /.content -->
     @endsection
+
+  
+@section('style')
+  <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
+  <style>
+    .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20rem; }
+    .toggle.ios .toggle-handle { border-radius: 20rem; }
+  </style>
+@endsection
+
+@section('script')
+<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+@endsection
+
+
+<!-- Toogle Button add using bootstrap
+ ** https://gitbrent.github.io/bootstrap4-toggle/ --> 

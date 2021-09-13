@@ -173,4 +173,13 @@ class PostController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * Own function for on off button
+     */
+
+     public function featuredbtn(Post $post)
+     {
+         return $post;
+     }
 }
