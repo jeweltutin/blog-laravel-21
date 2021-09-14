@@ -44,7 +44,8 @@ class FrontendController extends Controller
     }
 
     public function post($slug){
-        $post = Post::with('category', 'user')->where('slug', $slug ) ->first();
+        //$post = Post::with('category', 'user')->where('slug', $slug ) ->first();
+        $post = Post::where('slug', $slug )->first();
         //dd($post);
         if($post){
             return view('website.post', compact('post'));
