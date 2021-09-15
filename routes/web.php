@@ -49,6 +49,7 @@ Route::get('/contact', function(){
 
 //Admin panel routes
 use \App\Http\Controllers\CategoryController; 
+use \App\Http\Controllers\UserController; 
 Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::get('/dashboard', function(){
         return view('admin.dashboard.index');
@@ -58,6 +59,7 @@ Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     //Route::resource('category', '\App\Http\Controllers\CategoryController');
     Route::resource('tag', '\App\Http\Controllers\TagController');
     Route::resource('post', '\App\Http\Controllers\PostController');
+    Route::resource('user', UserController::class);
 });
 
 /* ** For work without login 

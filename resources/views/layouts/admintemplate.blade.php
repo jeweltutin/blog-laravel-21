@@ -219,6 +219,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </p> 
             </a>
           </li>
+          <li class="nav-item mt-auto">
+            <a href="{{ route('user.index') }}" class="nav-link">
+            <!-- <i class="nav-icon fas fa-plus-circle"></i> -->
+            <i class="nav-icon fas fa-user"></i>
+            <p>
+              User
+            </p> 
+            </a>
+          </li>
           <li class="nav-item mt-auto bg-danger">
             <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById(logout-form).submit();" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt"></i>

@@ -36,7 +36,7 @@
                         <a href="#">{{ $tag->name }}</a>, 
                       @endforeach
                     @endif
-                    </p>
+              </p>
             </div>
             <div class="pt-5">
               <h3 class="mb-5">6 Comments</h3>
