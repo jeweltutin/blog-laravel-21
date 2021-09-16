@@ -60,6 +60,8 @@ Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('tag', '\App\Http\Controllers\TagController');
     Route::resource('post', '\App\Http\Controllers\PostController');
     Route::resource('user', UserController::class);
+    Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
+    Route::put('/profile-update', [UserController::class, 'profile_update'])->name('user.profile.update');
 });
 
 /* ** For work without login 
