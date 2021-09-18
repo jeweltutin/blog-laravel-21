@@ -62,7 +62,8 @@
 
               <h2><a href="{{ route('website.post', ['slug' => $rpost->slug] ) }}">{{ $rpost->title }}</a></h2>
               <div class="post-meta align-items-center text-left clearfix">
-                <figure class="author-figure mb-0 mr-3 float-left"><img src="{{ asset('website')}}/images/person_1.jpg" alt="Image" class="img-fluid"></figure>
+                <!-- <figure class="author-figure mb-0 mr-3 float-left"><img src="{{ asset('website')}}/images/person_1.jpg" alt="Image" class="img-fluid"></figure> -->
+                <figure class="author-figure mb-0 mr-3 float-left"><img src="{{ asset($rpost->user->image) }}" alt="Image" class="img-fluid"></figure>
                 @if (isset(Auth::user()->name))
                   <span class="d-inline-block mt-1">By <a href="#"> {{  /*Auth::user()->name*/ $rpost->user->name }}</a></span>
                 @endif

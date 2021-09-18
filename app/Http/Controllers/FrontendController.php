@@ -6,6 +6,8 @@ use App\Http\Controllers\FrontendController;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
 
 class FrontendController extends Controller
 {
@@ -46,9 +48,13 @@ class FrontendController extends Controller
     public function post($slug){
         //$post = Post::with('category', 'user')->where('slug', $slug ) ->first();
         $post = Post::where('slug', $slug )->first();
+        $popular_posts = Post::with('category','user')->inRandomOrder()->limit(4)->get();
         //dd($post);
+        $categories = Category::all();
+        $tags = Tag::all();
+
         if($post){
-            return view('website.post', compact('post'));
+            return view('website.post', compact(['post','popular_posts','categories','tags']));
         }else{
             return redirect('/');
         }
