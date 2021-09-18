@@ -55,7 +55,8 @@
                                             <div class="form-group">
                                                 <label for="description">Enter About yourself</label>
                                                 <textarea name="bio" class="form-control" id="description"
-                                                    placeholder="Enter About" rows="4">{{ $user->bio }}</textarea>
+                                                    placeholder="Enter About" rows="4">{{ $user->bio }}
+                                                </textarea>
                                             </div>
                                         </div>
                                         <!-- /.card-body -->

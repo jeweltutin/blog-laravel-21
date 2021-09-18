@@ -83,18 +83,20 @@ class UserController extends Controller
         ]);
 
         $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->email = $request->email;        
         $user->bio = $request->bio;
-        $user->save();
+
+        if($request->has('password') && $request->password !==null){
+            $user->password = bcrypt($request->password);
+        }    
 
         if($request->hasFile('image')){
             $image = $request->image;
             $image_new_name = time().'.'.$image->getClientOriginalExtension();
             $image->move('storage/user/', $image_new_name);
             $user->image = '/storage/user/'. $image_new_name;
-            $user->save(); 
         }
+        $user->save();
 
         Session::flash('success', 'User profile Updated');
         return redirect()->back();
