@@ -90,7 +90,8 @@ class CategoryController extends Controller
     {
         //dd($request->all());
 
-        $this->validate($request, [ 'name' => "required|unique:categories,name, $category->name" ]);
+        //$this->validate($request, [ 'name' => "required|unique:categories,name, $category->name" ]);
+        $this->validate($request, [ 'name' => 'required' ]);
 
         
         $category->name = $request->name;

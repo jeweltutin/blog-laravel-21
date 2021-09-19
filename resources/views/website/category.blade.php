@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-md-6">
             <span>Category</span>
-            <h3>Sports</h3>
+            <h3>{{ $category->name }}</h3>
             <p>Category description here.. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam error eius quo, officiis non maxime quos reiciendis perferendis doloremque maiores!</p>
           </div>
         </div>

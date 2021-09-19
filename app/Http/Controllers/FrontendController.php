@@ -37,8 +37,14 @@ class FrontendController extends Controller
         return view('website.about');
     }
 
-    public function category(){
-        return view('website.category');
+    public function category($slug){
+        $category= Category::where('slug',$slug)->first();
+        if($category){
+            return view('website.category', compact('category'));
+        }else{
+            return redirect()->route('website');
+        }
+        
     }
 
     public function contact(){
