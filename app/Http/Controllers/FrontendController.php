@@ -40,7 +40,7 @@ class FrontendController extends Controller
     public function category($slug){
         $category= Category::where('slug',$slug)->first();
         if($category){
-            $posts = Post::where('category_id', $category->id)->paginate(2);
+            $posts = Post::where('category_id', $category->id)->paginate(9);
             //dd($posts);
             return view('website.category', compact(['category','posts']));
         }else{
