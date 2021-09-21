@@ -58,11 +58,17 @@ class FrontendController extends Controller
         $post = Post::where('slug', $slug )->first();
         $popular_posts = Post::with('category','user')->inRandomOrder()->limit(4)->get();
         //dd($post);
+
+        $relatedPosts = Post::orderBy('category_id', 'desc')->inRandomOrder()->take(4)->get();
+        $firstRelatedPost = $relatedPosts->splice(0, 1);
+        $firstRelatedPost2 = $relatedPosts->splice(0, 2);
+        $lastRelatedPost = $relatedPosts->splice(0, 1);
+
         $categories = Category::all();
         $tags = Tag::all();
 
         if($post){
-            return view('website.post', compact(['post','popular_posts','categories','tags']));
+            return view('website.post', compact(['post','popular_posts','categories','tags','firstRelatedPost','firstRelatedPost2','lastRelatedPost']));
         }else{
             return redirect('/');
         }
