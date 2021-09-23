@@ -22,7 +22,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //Frontend Routes
 Route::get('/', 'App\Http\Controllers\FrontendController@home')->name('website');
-//Route::get('/about', 'FrontendController@home')->name('website.about');
+Route::get('/about', [FrontendController::class, 'about'])->name('website.about');
 Route::get('/category/{slug}', [FrontendController::class, 'category'])->name('website.category');
 Route::get('/post/{slug}', 'App\Http\Controllers\FrontendController@post')->name('website.post');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('website.contact');
@@ -62,6 +62,8 @@ Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::resource('user', UserController::class);
     Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::put('/profile-update', [UserController::class, 'profile_update'])->name('user.profile.update');
+    Route::get('setting', 'App\Http\Controllers\SettingController@edit')->name('setting.edit');
+    Route::post('setting', 'App\Http\Controllers\SettingController@update')->name('setting.update');
 });
 
 /* ** For work without login 

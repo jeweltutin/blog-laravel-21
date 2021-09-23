@@ -228,6 +228,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </p> 
             </a>
           </li>
+          <li class="nav-item mt-auto">
+            <a href="{{ route('setting.edit') }}" class="nav-link">
+            <i class="nav-icon fas fa-cog"></i>
+            <p>
+              Setting
+            </p> 
+            </a>
+          </li>
           <li class="nav-header">Your Account</li>
           <li class="nav-item mt-auto">
             <a href="{{ route('user.profile') }}" class="nav-link">            

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\setting;
 use Illuminate\Http\Request;
+use Session;
 
 class SettingController extends Controller
 {
@@ -57,7 +58,8 @@ class SettingController extends Controller
      */
     public function edit(setting $setting)
     {
-        //
+        $setting = Setting::first();
+        return view('admin.setting.edit', compact('setting'));
     }
 
     /**
@@ -67,9 +69,28 @@ class SettingController extends Controller
      * @param  \App\Models\setting  $setting
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, setting $setting)
+    public function update(Request $request)
     {
-        //
+        //dd($request->all());
+        $this->validate($request, [
+            'name' => 'required',
+            'copyright' => 'required'
+        ]);
+
+        $setting = Setting::first();
+        $setting->update($request->all());
+
+        if($request->hasFile('site_logo')){
+            $uplogo = $request->site_logo;
+            $logoNewName = time().'.'. $uplogo->getClientOriginalExtension();
+            $uplogo->move('storage/setting/', $logoNewName);
+            $setting->site_logo = '/storage/setting/'. $logoNewName;         
+        }
+
+        $setting->save();
+        
+        Session::flash('success', 'Settings updated successfully');
+        return redirect()->back();
     }
 
     /**
