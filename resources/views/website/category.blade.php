@@ -21,11 +21,11 @@
           <div class="col-lg-4 mb-4">
             <div class="entry2">
               <!-- <a href="{{ route('website.category',['slug' => $category->slug ]) }}"><img src="{{ asset('website') }}/images/img_1.jpg" alt="Image" class="img-fluid rounded"></a> -->
-              <a href="{{ route('website.category',['slug' => $category->slug ]) }}"><img src="{{ $post->image }}" alt="Image" class="img-fluid rounded"></a>
+              <a href="{{ route('website.post', ['slug' => $post->slug] ) }}"><img src="{{ $post->image }}" alt="Image" class="img-fluid rounded"></a>
               <div class="excerpt">
               <span class="post-category text-white bg-secondary mb-3">{{ $post->category->name }}</span>
 
-              <h2><a href="{{ route('website.category',['slug' => $category->slug ]) }}">{{ $post->title }}</a></h2>
+              <h2><a href="{{ route('website.post', ['slug' => $post->slug] ) }}">{{ $post->title }}</a></h2>
               <div class="post-meta align-items-center text-left clearfix">
                 <figure class="author-figure mb-0 mr-3 float-left"><img src="@if($post->user->image) {{ asset( $post->user->image ) }} @else {{ asset('website/images/user.png') }} @endif" alt="Image" class="img-fluid"></figure>
                 <span class="d-inline-block mt-1">By <a href="#">Carrol Atkinson</a></span>
@@ -33,7 +33,7 @@
               </div>
               
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo sunt tempora dolor laudantium sed optio, explicabo ad deleniti impedit facilis fugit recusandae! Illo, aliquid, dicta beatae quia porro id est.</p>
-                <p><a href="#">Read More</a></p>
+                <p><a href="{{ route('website.post', ['slug' => $post->slug] ) }}">Read More</a></p>
               </div>
             </div>
           </div>
