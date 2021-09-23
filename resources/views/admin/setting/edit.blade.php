@@ -92,16 +92,23 @@
                             </div>
                             <div class="form-group">
                                 <div class="row">
-                                    <div class="col-8">
+                                    <!-- <div class="col-8">
                                         <label for="logo">Site Logo</label>
                                         <input type="file" name="site_logo" id="image" class="form-control-file">
+                                    </div> -->
+                                    <div class="col-8">
+                                        <label for="logo">Site Logo</label>
+                                        <div class="custom-file">
+                                            <input type="file" name="site_logo" class="custom-file-input" id="customFile">
+                                            <label class="custom-file-label" for="customFile">Choose file</label>
+                                        </div>
                                     </div>
                                     <div class="col-4 text-right">
                                         <div
-                                            style="max-width: 300px;  max-height:150px; overflow:hidden; margin-left:auto;">
+                                            style="max-width: 200px;  max-height:100px; overflow:hidden; margin-left:auto;">
                                             <img src="{{ asset($setting->site_logo) }}" class="img-fluid" alt="">
                                         </div>
-                                    </div>
+                                    </div> 
                                 </div>
 
                             </div>

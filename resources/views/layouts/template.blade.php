@@ -80,7 +80,7 @@
               <li><a href="#">Subscribes</a></li>
             </ul>
             <ul class="list-unstyled float-left">
-              <!-- @foreach($categories as $category) -->
+              <!-- @foreach($categories as $category) -->             
               @for($i=0; $i < 1; $i++)
               <li><a href="{{ route('website.category', ['slug' => $category->slug ]) }}">{{ $category->name }}</a></li>
               @endfor
