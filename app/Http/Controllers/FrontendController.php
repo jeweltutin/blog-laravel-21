@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
+use App\Models\User;
 
 class FrontendController extends Controller
 {
@@ -34,7 +35,8 @@ class FrontendController extends Controller
     }
 
     public function about(){
-        return view('website.about');
+        $user = User::first();
+        return view('website.about', compact('user'));
     }
 
     public function category($slug){

@@ -46,6 +46,11 @@
                                             </div>
                                 </div>
                             </div>
+                            <div class="card card-success">
+                                <div class="card-header">
+                                    <h3 class="card-title">Footer Secial Media settings</h3>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form-group">
@@ -76,10 +81,17 @@
                                     </div>
                                 </div>
                                 <div class="col-6">
-                                    <div class="form-group">
+                                    <!-- <div class="form-group">
                                         <label for="email">Email</label>
                                         <input type="text" class="form-control" id="email" name="email"
                                             value="{{ $setting->email }}" placeholder="Enter Email url">
+                                    </div> -->
+                                    <label for="email">Email</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                        </div>
+                                        <input type="email" class="form-control" name="email"  value="{{ $setting->email }}" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -89,6 +101,11 @@
                                             value="{{ $setting->copyright }}" placeholder="Enter Copyright text">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card card-success">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Website logo set</h3>
+                                    </div>
                             </div>
                             <div class="form-group">
                                 <div class="row">

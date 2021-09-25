@@ -32,7 +32,7 @@
       <div class="site-mobile-menu-body"></div>
     </div>
     
-    <header class="site-navbar" role="banner">
+    <header class="site-navbar" role="banner" style="background-color: lightblue">
       <div class="container-fluid">
         <div class="row align-items-center">
           
@@ -44,7 +44,11 @@
           </div>
 
           <div class="col-4 site-logo">
-            <a href="index.html" class="text-black h2 mb-0">Mini Blog</a>
+            @if($setting->site_logo)
+              <img style="max-width: 150px;" src="{{ asset($setting->site_logo) }}" alt="">
+            @else
+              <a href="index.html" class="text-black h2 mb-0">{{ $setting->name }}</a>
+            @endif
           </div>
 
           <div class="col-8 text-right">

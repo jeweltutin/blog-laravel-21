@@ -21,7 +21,7 @@
             </div>
             <div class="col-md-5 mr-auto order-md-1">
                 <h2> {{ $user->name }}</h2>
-                <p>{{ $user->description }}</p>
+                <p>{{ $user->bio }}</p>
             </div>
         </div>
         </div>
