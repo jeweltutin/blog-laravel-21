@@ -80,6 +80,13 @@
                                             value="{{ $setting->instagram }}" placeholder="Enter Instagram url">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="card card-success">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Contact Page Info</h3>
+                                    </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-6">
                                     <!-- <div class="form-group">
                                         <label for="email">Email</label>
@@ -92,6 +99,24 @@
                                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                                         </div>
                                         <input type="email" class="form-control" name="email"  value="{{ $setting->email }}" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="phone">Contact Number</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                        </div>
+                                        <input type="text" class="form-control" name="phone"  value="{{ $setting->phone }}" placeholder="Contact Number">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <label for="email">Full Address</label>
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                                        </div>
+                                        <textarea class="form-control" name="address" placeholder="Full Address here">{{ $setting->address }} </textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">

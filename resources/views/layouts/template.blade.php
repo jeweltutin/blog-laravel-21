@@ -45,9 +45,9 @@
 
           <div class="col-4 site-logo">
             @if($setting->site_logo)
-              <img style="max-width: 150px;" src="{{ asset($setting->site_logo) }}" alt="">
+            <a href="{{ route('website') }}"><img style="max-width: 150px;" src="{{ asset($setting->site_logo) }}" alt=""></a>
             @else
-              <a href="index.html" class="text-black h2 mb-0">{{ $setting->name }}</a>
+              <a href="{{ route('website') }}" class="text-black h2 mb-0">{{ $setting->name }}</a>
             @endif
           </div>
 
