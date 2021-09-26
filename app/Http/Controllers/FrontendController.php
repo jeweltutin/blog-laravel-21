@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\FrontendController;
 use Illuminate\Http\Request;
 
+use Session;
 use App\Models\Post;
 use App\Models\Category;
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\Contact;
 
 class FrontendController extends Controller
 {
@@ -76,4 +78,24 @@ class FrontendController extends Controller
         }
         
     }
+
+    public function send_message(Request $request){
+        //dd($request->all());
+
+        $this->validate($request, [
+            'name' => 'required|max:200',
+            'email' => 'required|email|max:200',
+            'subject' => 'required|max:255',
+            'message' => 'required|min:100'
+        ]);
+
+        $contactMsg = Contact::create($request->all());
+
+        Session::flash('message-send', 'Contact message send Successfully');
+        return redirect()->back();
+
+
+    }
+
+
 }
