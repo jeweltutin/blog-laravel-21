@@ -65,6 +65,9 @@ Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     Route::put('/profile-update', [UserController::class, 'profile_update'])->name('user.profile.update');
     Route::get('setting', 'App\Http\Controllers\SettingController@edit')->name('setting.edit');
     Route::post('setting', 'App\Http\Controllers\SettingController@update')->name('setting.update');
+    Route::get('/contact', 'App\Http\Controllers\ContactController@index')->name('contact.index');
+    Route::get('/contact/show/{id}', 'App\Http\Controllers\ContactController@show')->name('contact.show');
+    Route::delete('/contact/delete/{id}', 'App\Http\Controllers\ContactController@destroy')->name('contact.destroy');
 });
 
 /* ** For work without login 

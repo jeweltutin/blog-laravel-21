@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 
+use Session;
+
 class ContactController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $messages = Contact::latest()->get();
+        return view('admin.contact.index', compact('messages'));
     }
 
     /**
@@ -44,9 +47,16 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function show(Contact $contact)
+    public function show($id)
     {
-        //
+        $message = Contact::find($id);
+
+        if($message){
+            return view('admin.contact.show', compact('message'));
+        }else{
+            Session::flash('error', 'Contact message not found');
+            return redirect()->route('dashboard');
+        }
     }
 
     /**
@@ -78,8 +88,16 @@ class ContactController extends Controller
      * @param  \App\Models\Contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contact $contact)
+    public function destroy($id)
     {
-        //
+        $contact = Contact::find($id);
+
+        if($contact){
+            $contact->delete();
+
+            Session::flash('success', 'Message deleted successfully');
+        }
+
+        return redirect()->back();
     }
 }
