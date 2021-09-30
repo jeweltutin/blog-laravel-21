@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="{{ asset('website')}}/css/aos.css">
 
     <link rel="stylesheet" href="{{ asset('website')}}/css/style.css">
+    @yield('style')
   </head>
   <body>
   
@@ -136,6 +137,8 @@
   <script src="{{ asset('website') }}/js/aos.js"></script>
 
   <script src="js/main.js"></script>
+
+  @yield('script')
     
   </body>
 </html>

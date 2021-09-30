@@ -1,5 +1,39 @@
 @extends('layouts.template')
 @section('content')
+<div class="slidersec">
+  <div class="slideshow-container">
+
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <a href="#"><img src="{{ asset('website')}}/slider/slides/img_nature_wide.jpg" alt="Image" class="img-fluid rounded" style="width:100%"></a>
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <a href="#"><img src="{{ asset('website')}}/slider/slides/img_snow_wide.jpg" alt="Image" class="img-fluid rounded" style="width:100%"></a>
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <a href="#"><img src="{{ asset('website')}}/slider/slides/img_mountains_wide.jpg" alt="Image" class="img-fluid rounded" style="width:100%"></a>
+    <div class="text">Caption Three</div>
+  </div>
+
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
+<!--   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow_auto -->
+</div>
 <div class="site-section bg-light">
       <div class="container">
         <div class="row align-items-stretch retro-layout-2">
@@ -156,4 +190,12 @@
         </div>
       </div>
     </div>
+@endsection
+
+@section('style')
+  <link rel="stylesheet" href="{{ asset('website')}}/slider/jslider.css">
+@endsection
+
+@section('script')
+  <script src="{{ asset('website') }}/slider/jslider.js"></script>
 @endsection
