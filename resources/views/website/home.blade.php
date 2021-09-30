@@ -1,6 +1,6 @@
 @extends('layouts.template')
 @section('content')
-<div class="slidersec">
+<!--<div class="slidersec">
   <div class="slideshow-container">
 
   <div class="mySlides fade">
@@ -32,8 +32,46 @@
     <span class="dot"></span> 
     <span class="dot"></span> 
   </div>
-<!--   https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow_auto -->
+ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_slideshow_auto 
+</div>-->
+<div class="slidersec">
+<!-- https://getbootstrap.com/docs/4.0/components/carousel/ -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{{ asset('website')}}/slider/slides/img_nature_wide.jpg" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First Slide Title</h5>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Repudiandae consectetur maxime delectus dolores dolorum enim laborum voluptates iusto quisquam et!
+             Quidem soluta nisi asperiores, officia optio possimus quas laborum velit.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ asset('website')}}/slider/slides/img_snow_wide.jpg" alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{ asset('website')}}/slider/slides/img_mountains_wide.jpg" alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
 </div>
+
 <div class="site-section bg-light">
       <div class="container">
         <div class="row align-items-stretch retro-layout-2">
@@ -191,11 +229,21 @@
       </div>
     </div>
 @endsection
+@section('script')
+<script>
+$('.carousel').carousel({
+  interval: 2000,
+  pause: false
+});
+</script>
+@endsection
 
+{{-- 
 @section('style')
   <link rel="stylesheet" href="{{ asset('website')}}/slider/jslider.css">
 @endsection
 
 @section('script')
   <script src="{{ asset('website') }}/slider/jslider.js"></script>
-@endsection
+@endsection --}}
+
