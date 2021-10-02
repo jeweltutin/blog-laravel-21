@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\EmailController;
 
 use App\Models\Post;
 
@@ -27,6 +28,7 @@ Route::get('/category/{slug}', [FrontendController::class, 'category'])->name('w
 Route::get('/post/{slug}', 'App\Http\Controllers\FrontendController@post')->name('website.post');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('website.contact');
 Route::post('/contact', [FrontendController::class, 'send_message'])->name('website.contact');
+Route::get('send-email',[EmailController::class,'sendEmail']);
 
 
 /*Route::get('/', function(){
