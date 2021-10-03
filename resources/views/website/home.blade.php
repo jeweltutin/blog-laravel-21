@@ -229,12 +229,76 @@
       </div>
     </div>
 @endsection
+
+@section('style')
+<style>
+  #advert-once {
+    background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0;
+    bottom: 0;
+    display: inline-block;
+    height: 100%;
+    padding: 60px 5px 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    width: 100%;
+    z-index: 99999;
+  }
+  #advert-once .advert-button {
+    background-color: #ff4500;
+    border-radius: 5px;
+    cursor: pointer;
+    /*height: 30px;*/
+    height: auto;
+    left: 50%;
+    padding: 2px;
+    position: absolute;
+    color: #fff;
+    top: 10px;
+    width: 30px;
+  }
+
+  #advert-once img {
+      max-width: 100%;
+  }
+</style>
+@endsection
+
 @section('script')
 <script>
 $('.carousel').carousel({
   interval: 2000,
   pause: false
 });
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
+<script>
+    jQuery(document).ready(function($){
+
+        var onoff = 0;
+        if(onoff == 1)
+        {
+          //if (sessionStorage.getItem('advertOnce') !== 'true') {
+            //$('body').append('<div id="advert-once"><div class="popup-res"><a href="https://kiksha.com/xiaomi-redmi-note-5-3gb-32gb" target="_blank"><img src="https://www.xiaomibangladesh.com.bd/images/Kiksha-Web-Pop-Up.jpg" border="0" alt="banner" /></a><a style="padding-left: 5px;" href="http://bit.ly/REDMI-NOTE5" target="_blank"><img src="https://www.xiaomibangladesh.com.bd/images/Pickaboo-Web-Pop-Up.jpg" border="0" alt="banner2" /></a><div class="advert-button">X</div></div></div>')
+            $('body').append('<div id="advert-once"><div class="popup-res"><a href="https://kiksha.com/xiaomi-redmi-note-5-3gb-32gb" target="_blank"><img src="https://www.dealbazaar.com.bd/wp-content/uploads/2020/07/Redmi-9-_pop_up.jpg" border="0" alt="banner" /></a></a><div class="advert-button">X</div></div></div>')
+            sessionStorage.setItem('advertOnce','true');
+          //}
+        }
+          
+        $('#advert-once .advert-button').on('click',function(){
+            $('#advert-once').hide("slow");
+        });
+        $('#advert-once').on('click',function(){
+            $('#advert-once').css('background-color','transparent');
+            $('#advert-once').hide("slow");
+        });
+          
+        $('#reset-session').on('click',function(){
+        sessionStorage.setItem('advertOnce','');
+        });
+     
+    });
 </script>
 @endsection
 
@@ -246,4 +310,6 @@ $('.carousel').carousel({
 @section('script')
   <script src="{{ asset('website') }}/slider/jslider.js"></script>
 @endsection --}}
+
+
 

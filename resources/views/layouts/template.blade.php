@@ -3,6 +3,7 @@
   <head>
     <title>Mini Blog</title>
     <meta charset="utf-8">
+    <link rel=icon href="{{ asset('website')}}/images/favicon.png" sizes="16x16 128x128 512x512" type="image/png">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="../../css.css?family=Muli:300,400,700|Playfair+Display:400,700,900" rel="stylesheet">
@@ -21,7 +22,7 @@
     @yield('style')
   </head>
   <body>
-  
+  <div class="se-pre-con"></div>
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
