@@ -53,6 +53,19 @@ class FrontendController extends Controller
         
     }
 
+    public function tag($slug){
+        $tag= Tag::where('slug',$slug)->first();
+        if($tag){
+            $posts = $tag->posts()->orderBy('created_at', 'desc')->paginate(9);
+            //return $posts;
+            //dd($posts);
+            return view('website.tag', compact(['tag','posts']));
+        }else{
+            return redirect()->route('website');
+        }
+        
+    }
+
     public function contact(){
         return view('website.contact');
     }

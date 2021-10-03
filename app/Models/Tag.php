@@ -9,4 +9,9 @@ class Tag extends Model
 { 
     use HasFactory;
     protected $guarded = ['created_at', 'updated_at', 'deleted_at'];
+
+    public function posts(){
+        //return $this->hasMany(Post::class);
+        return $this->belongsToMany(Post::class);
+    }
 }

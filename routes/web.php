@@ -25,6 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/', 'App\Http\Controllers\FrontendController@home')->name('website');
 Route::get('/about', [FrontendController::class, 'about'])->name('website.about');
 Route::get('/category/{slug}', [FrontendController::class, 'category'])->name('website.category');
+Route::get('/tag/{slug}', [FrontendController::class, 'tag'])->name('website.tag');
 Route::get('/post/{slug}', 'App\Http\Controllers\FrontendController@post')->name('website.post');
 Route::get('/contact', [FrontendController::class, 'contact'])->name('website.contact');
 Route::post('/contact', [FrontendController::class, 'send_message'])->name('website.contact');

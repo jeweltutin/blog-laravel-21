@@ -22,7 +22,6 @@
     @yield('style')
   </head>
   <body>
-  <div class="se-pre-con"></div>
   <div class="site-wrap">
 
     <div class="site-mobile-menu">
