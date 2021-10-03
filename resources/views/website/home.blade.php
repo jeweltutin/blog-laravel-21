@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{{ asset('website')}}/slider/slides/img_snow_wide.jpg" alt="Second slide">
+        <a href="#"><img class="d-block w-100" src="{{ asset('website')}}/slider/slides/img_snow_wide.jpg" alt="Second slide"></a>
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="{{ asset('website')}}/slider/slides/img_mountains_wide.jpg" alt="Third slide">
