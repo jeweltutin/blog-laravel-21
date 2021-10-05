@@ -55,9 +55,11 @@ Route::get('/contact', function(){
 use \App\Http\Controllers\CategoryController; 
 use \App\Http\Controllers\UserController; 
 Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
-    Route::get('/dashboard', function(){
+    
+   /*  Route::get('/dashboard', function(){
         return view('admin.dashboard.index');
-    });
+    })->name('dashboard'); */
+    Route::get('/dashboard', '\App\Http\Controllers\DashboardController@index')->name('dashboard');
     
     Route::resource('category', CategoryController::class);
     //Route::resource('category', '\App\Http\Controllers\CategoryController');

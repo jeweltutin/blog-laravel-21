@@ -40,6 +40,7 @@
                       <th>Category</th> 
                       <th>Tags</th> 
                       <th>Featured</th> 
+                      <th>Created</th>
                       <th>Author</th> 
                       <th style="width: 40px">Action</th>
                     </tr>
@@ -67,6 +68,7 @@
                       <td>
                         <input type="checkbox" data-toggle="toggle" data-style="ios" data-size="xs">
                       </td>
+                      <td>{{ $post->created_at->format('d M, Y') }}</td>
                       <td>{{ $post->user->name }}</td>
                       <td class="d-flex">
                         <a href="{{ route('post.show', [$post->id]) }}" class="btn btn-sm btn-success mr-1"><i class="fas fa-eye"></i></a>
