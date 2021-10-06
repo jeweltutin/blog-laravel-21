@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\EmailController;
+use \App\Http\Controllers\CategoryController; 
+use \App\Http\Controllers\UserController; 
+use App\Http\Controllers\BookController;
 
 use App\Models\Post;
 
@@ -31,6 +34,8 @@ Route::get('/contact', [FrontendController::class, 'contact'])->name('website.co
 Route::post('/contact', [FrontendController::class, 'send_message'])->name('website.contact');
 Route::get('send-email',[EmailController::class,'sendEmail']);
 
+Route::resource('/books', BookController::class);
+
 
 /*Route::get('/', function(){
     //return view('layouts.template');
@@ -52,8 +57,6 @@ Route::get('/contact', function(){
 
 
 //Admin panel routes
-use \App\Http\Controllers\CategoryController; 
-use \App\Http\Controllers\UserController; 
 Route::group([ 'prefix' => 'admin', 'middleware' => ['auth']], function(){
     
    /*  Route::get('/dashboard', function(){
