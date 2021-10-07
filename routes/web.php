@@ -6,8 +6,9 @@ use App\Http\Controllers\EmailController;
 use \App\Http\Controllers\CategoryController; 
 use \App\Http\Controllers\UserController; 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\GalleryController;
 
-use App\Models\Post;
+//use App\Models\Post;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::get('send-email',[EmailController::class,'sendEmail']);
 
 Route::resource('/books', BookController::class);
 
+Route::get('/image-gallery', [GalleryController::class, 'index']);
+Route::post('/image-gallery', [GalleryController::class, 'upload']);
+Route::delete('/image-gallery/{id}', [GalleryController::class, 'destroy']);
 
 /*Route::get('/', function(){
     //return view('layouts.template');
