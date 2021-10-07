@@ -30,8 +30,8 @@
                 
                   </div>
               <!-- /.card-header -->
-              <div class="card-body p-0">
-                <table class="table table-striped">
+              <div class="card-body pt-20">
+                <table id="post-data-table" class="table table-bordered data-table">
                   <thead>
                     <tr>
                       <th style="width: 10px">#</th>
@@ -109,10 +109,17 @@
     .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20rem; }
     .toggle.ios .toggle-handle { border-radius: 20rem; }
   </style>
+  <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 @endsection
 
 @section('script')
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#post-data-table').DataTable();
+} );
+</script>
 @endsection
 
 
