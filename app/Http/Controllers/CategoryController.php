@@ -19,7 +19,7 @@ class CategoryController extends Controller
         //return "Hello! man";
         //return view('admin.category.index');
 
-        $categories = Category::orderBy('created_at', 'DESC')->paginate(20);
+        $categories = Category::orderBy('created_at', 'DESC')->paginate(10);
         return view('admin.category.index', compact('categories'));
     }
 

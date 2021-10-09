@@ -71,6 +71,9 @@
                 </table>
               </div>
               <!-- /.card-body -->
+              <div class="card-footer d-flex justify-content-center">
+                {{ $tags->links('pagination::bootstrap-4') }}
+              </div>
             </div>
           </div>
         

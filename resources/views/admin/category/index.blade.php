@@ -110,6 +110,9 @@
               </div>
               <!-- /.card-body -->
             </div>
+            <div class="card-footer d-flex justify-content-center">
+              {{ $categories->links('pagination::bootstrap-4') }}
+            </div>
           </div>
         
         <!-- /.row -->
