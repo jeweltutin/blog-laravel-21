@@ -196,7 +196,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li> -->
           <li class="nav-item mt-auto">
-            <a href="{{ route('dashboard') }}" class="nav-link">
+            <a href="{{ route('dashboard') }}" class="nav-link {{ (request()->is('admin/dashboard')) ? 'active' : '' }}">
             <i class="nav-icon fas fa-tachometer-alt"></i>
             <p>
               Dashboard
@@ -204,7 +204,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('category.index') }}" class="nav-link">
+            <a href="{{ route('category.index') }}" class="nav-link {{ (request()->is('admin/category')) ? 'active' : '' }}">
             <i class="nav-icon fas fa-check-circle"></i>
             <p>
               Categories
@@ -212,7 +212,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('tag.index') }}" class="nav-link">
+            <a href="{{ route('tag.index') }}" class="nav-link {{ (request()->is('admin/tag')) ? 'active' : '' }}">
             <i class="nav-icon fas fa-tags"></i>
             <p>
               Tags
@@ -220,16 +220,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('post.index') }}" class="nav-link">
+            <a href="{{ route('post.index') }}" class="nav-link {{ (request()->is('admin/post')) ? 'active' : '' }}">
             <!-- <i class="nav-icon fas fa-plus-circle"></i> -->
             <i class="nav-icon fas fa-pen-square"></i>
             <p>
               Posts
+              <span class="right badge badge-danger">New</span>
             </p> 
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('contact.index') }}" class="nav-link">
+            <a href="{{ route('contact.index') }}" class="nav-link {{ (request()->is('admin/contact')) ? 'active' : '' }}">
             <i class="nav-icon fas fa-envelope"></i>
             <p>
               Contact Messages
@@ -237,7 +238,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('user.index') }}" class="nav-link">
+            <a href="{{ route('user.index') }}" class="nav-link {{ (request()->is('admin/user')) ? 'active' : '' }}">
             <!-- <i class="nav-icon fas fa-plus-circle"></i> -->
             <i class="nav-icon fas fa-user"></i>
             <p>
@@ -246,7 +247,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('setting.edit') }}" class="nav-link">
+            <a href="{{ route('setting.edit') }}" class="nav-link {{ (request()->is('admin/setting')) ? 'active' : '' }}">
             <i class="nav-icon fas fa-cog"></i>
             <p>
               Setting
@@ -255,7 +256,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </li>
           <li class="nav-header">Your Account</li>
           <li class="nav-item mt-auto">
-            <a href="{{ route('user.profile') }}" class="nav-link">            
+            <a href="{{ route('user.profile') }}" class="nav-link {{ (request()->is('admin/profile')) ? 'active' : '' }}">            
             <i class="nav-icon far fa-user"></i>
             <p>
               Your Profile
@@ -270,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </p> 
             </a>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
@@ -278,7 +279,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <span class="right badge badge-danger">New</span>
               </p>
             </a>
-          </li>
+          </li>-->
+          <hr />
           <li class="nav-item mt-auto bg-info">
             <a href="{{ route('website') }}" class="nav-link" target="_blank">
             <i class="nav-icon fas fa-eye"></i>
