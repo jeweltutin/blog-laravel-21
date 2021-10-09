@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Session;
 
 class GalleryController extends Controller
 {
@@ -50,11 +52,38 @@ class GalleryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function destroy($id)
+    /*public function destroy($id)
     {
     	Gallery::find($id)->delete();
     	return back()->with('success','Image removed successfully.');	
-    } 
+    }*/
+
+    public function destroy($id){ 
+        $findImg = DB::table('galleries')->select('image')->where('id', $id )->first();
+
+        $selectImg = $findImg->image;
+        //$selectImg = $findImg[0]->image;
+
+        $pubpath =  (public_path('gallery-images/'));
+
+        $imgpath = $pubpath.$selectImg;
+        //dd($imgpath);
+
+        if($imgpath){
+            if(file_exists($imgpath)){
+                //dd('Found');
+                unlink($imgpath);
+                //return $imgpath;
+            }
+            else{
+                dd('Not Found');
+            }
+
+            Gallery::find($id)->delete();
+            
+        }
+        return back()->with('success','Image removed successfully.');
+    }
 
 
 }

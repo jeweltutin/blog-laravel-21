@@ -94,6 +94,7 @@
                             <small class='text-muted'>{{ $image->title }}</small>
                         </div> <!-- text-center / end -->
                     </a>
+                    <!--<small class='text-muted'>{{ public_path() }}/gallery-images/{{ $image->image }}</small>-->
                     <form action="{{ url('image-gallery',$image->id) }}" method="POST">
                     <input type="hidden" name="_method" value="delete">
                     {!! csrf_field() !!}
